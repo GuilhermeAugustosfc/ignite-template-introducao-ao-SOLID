@@ -1,0 +1,133 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Rental Documentacios",
+    "description": "this is api Gui rico",
+    "version": "1.0.0",
+    "contact": {
+      "email": "gui@fico.com.br"
+    }
+  },
+  "paths": {
+    "/users": {
+      "post": {
+        "tags": ["Users"],
+        "sumary": "crate a user",
+        "description": "this is api Gui rico",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "name": "Category name simple",
+                  "description": "Category description simple"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Category aeredy exits"
+          }
+        }
+      },
+      "get": {
+        "tags": ["Users"],
+        "summary": "get all users",
+        "description": "get all users",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "user/{user_id}": {
+      "get": {
+        "tags": ["Users"],
+        "summary": "get user by id",
+        "description": "get user by id",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "user/{user_id}/admin": {
+      "patch": {
+        "tags": ["Users"],
+        "sumary": "change user to admin",
+        "description": "change user to admin",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "id": "Id user"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "change to admin true"
+          },
+          "500": {
+            "description": "change to admin false"
+          }
+        }
+      }
+    }
+  }
+}
